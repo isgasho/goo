@@ -1,4 +1,4 @@
-package googege
+package goo
 
 import "testing"
 

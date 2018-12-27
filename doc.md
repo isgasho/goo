@@ -1,7 +1,7 @@
 PACKAGE DOCUMENTATION
 
-package googege
-    import "github.com/googege/googege"
+package goo
+    import "github.com/googege/goo"
 
 
 FUNCTIONS
