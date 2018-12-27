@@ -1,4 +1,4 @@
-module github.com/googege/googege
+module github.com/googege/goo
 
 require (
 	github.com/alecthomas/gometalinter v2.0.12+incompatible // indirect
