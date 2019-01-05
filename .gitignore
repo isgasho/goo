@@ -1,5 +1,5 @@
-.text
-.doc
+*.text
+*.doc
 node_models
 *.idea
 .DS_Store
