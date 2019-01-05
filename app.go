@@ -1,3 +1,4 @@
+//Package goo app.go this file has the global functions structs maps slices or anything else.
 package goo
 
 import (

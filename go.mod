@@ -12,8 +12,8 @@ require (
 	github.com/sqs/goreturns v0.0.0-20181028201513-538ac6014518 // indirect
 	github.com/tpng/gopkgs v0.0.0-20180428091733-81e90e22e204 // indirect
 	github.com/zmb3/goaddimport v0.0.0-20170810013102-4ab94a07ab86 // indirect
-	github.com/zmb3/gogetdoc v0.0.0-20181208215853-c5ca8f4d4936 // indirect
-	golang.org/x/tools v0.0.0-20181221235234-d00ac6d27372 // indirect
+	github.com/zmb3/gogetdoc v0.0.0-20190101160103-a2964ac3d615 // indirect
+	golang.org/x/tools v0.0.0-20190104182027-498d95493402 // indirect
 	gopkg.in/alecthomas/kingpin.v3-unstable v3.0.0-20180810215634-df19058c872c // indirect
 	gopkg.in/yaml.v2 v2.2.2 // indirect
 )
