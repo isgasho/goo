@@ -5,7 +5,7 @@ import "os"
 
 // InSet is a bit array struct.
 type IntSet struct {
-	Words []uint64 // bit 数组。
+	Words []uint64 // bit array
 }
 
 //Len return a int type value about the bit array's length.
@@ -21,7 +21,7 @@ func (i *IntSet) Remove(x int) {
 	i.Words = append(i.Words[:x], i.Words[x+1:]...)
 }
 
-//Clear clear the arry,and let  i.Words point a new slice.
+//Clear clear the array,and let  i.Words point a new slice.
 func (i *IntSet) Clear() {
 	i.Words = make([]uint64, 0)
 }
