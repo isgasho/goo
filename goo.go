@@ -1,4 +1,4 @@
-//Package goo goo.go this file incloud the common functions,maps slices, structs or anything else.
+//goo.go this file incloud the common functions,maps slices, structs or anything else.
 package goo
 
 import "os"
@@ -13,7 +13,7 @@ func (i *IntSet) Len() int {
 	return len(i.Words)
 }
 
-//Remove remove this array's one bit.
+// remove this array's one bit.
 func (i *IntSet) Remove(x int) {
 	if i.Len() <= x {
 		os.Exit(1)
@@ -21,13 +21,13 @@ func (i *IntSet) Remove(x int) {
 	i.Words = append(i.Words[:x], i.Words[x+1:]...)
 }
 
-//Clear clear the array,and let  i.Words point a new slice.
+// clear the array,and let  i.Words point a new slice.
 func (i *IntSet) Clear() {
 	i.Words = make([]uint64, 0)
 }
 
-//Copy copy form the old array to a new array,return a new instance's pointer.
+// copy form the old array to a new array,return a new instance's pointer.
 func (i *IntSet) Copy() *IntSet {
-	t := *i   // 取得实际值的复制值
-	return &t //然后把这个复制的值的地址给返回。
+	t := *i
+	return &t
 }
