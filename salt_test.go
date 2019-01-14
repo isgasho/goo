@@ -63,3 +63,20 @@ func BenchmarkDeEncryptMd5(b *testing.B) {
 		DeEncryptMd5("12345!!","9e914643","14643d82fc76d3dbf0124ab50892844")
 	}
 }
+
+func ExampleDeEncryptMd5() {
+	pass,salt := EncryptMd5("991182@")
+	passReal := "991182@"
+	a,b := DeEncryptMd5(passReal,pass,salt)
+	if b != nil || !a {
+		fmt.Println("x")
+	//	output:x
+	}
+	fmt.Println(pass,salt)
+	passErr := "123456!@"
+	d,e := DeEncryptMd5(passErr,pass,salt)
+	if e != nil || !d {
+		fmt.Println("err")
+	//	output: err
+	}
+}
