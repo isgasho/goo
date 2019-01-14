@@ -8,13 +8,15 @@ import (
 )
 
 // return result and salt. Use hexadecimal to save []byte of data.
-func Encrypt(password string) (string, string) {
+func Encrypt(password string) (result string, salt string) {
 	salt := fastrand.Bytes(32)
 	key := argon2.IDKey([]byte(password), salt, 1, 64*1024, 4, 32)
-	return fmt.Sprintf("%x", key), fmt.Sprintf("%x", salt)
+	result, salt = fmt.Sprintf("%x", key), fmt.Sprintf("%x", salt)
+	return
 }
+
 //Verify that the user's password is equal to the password in the database
-func DeEncrypt(password string, saltDB string, resultDB string) (is bool, err error) {
+func DeEncrypt(password string, resultDB string, saltDB string) (is bool, err error) {
 	saltDBByte, err := hex.DecodeString(saltDB)
 	if err != nil {
 		return false, err
@@ -25,3 +27,4 @@ func DeEncrypt(password string, saltDB string, resultDB string) (is bool, err er
 	}
 	return false, nil
 }
+
