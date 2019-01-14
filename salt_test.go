@@ -36,8 +36,8 @@ func BenchmarkDeEncrypt(b *testing.B) {
 }
 
 func TestEncryptMd5(t *testing.T) {
-	pass,salt := EncryptMd5("123456!!")
-	passReal := "123456!!"
+	pass,salt := EncryptMd5("991182@")
+	passReal := "991182@"
 	a,b := DeEncryptMd5(passReal,pass,salt)
 	if b != nil || !a {
 		t.Error("❌")
