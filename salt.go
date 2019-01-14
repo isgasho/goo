@@ -1,3 +1,4 @@
+//salt.go This file is all about encrypting and decrypting passwords.
 package goo
 
 import (
