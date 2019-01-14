@@ -1,7 +1,5 @@
 //salt.go This file is all about encrypting and decrypting passwords.
-//
-//func main(t *testing.T) {
-
+//this is a example:
 //	pass,salt := EncryptMd5("991182@")
 //	passReal := "991182@"
 //	a,b := DeEncryptMd5(passReal,pass,salt)
@@ -16,7 +14,7 @@
 //	}
 //
 //
-//}
+//
 
 package goo
 
