@@ -1,7 +1,14 @@
 //goo.go this file incloud the common functions,maps slices, structs or anything else.
 package goo
 
-import "os"
+import (
+	"encoding/json"
+	"fmt"
+	"io/ioutil"
+	"net/http"
+	"os"
+	"sync"
+)
 
 // InSet is a bit array struct.
 type IntSet struct {
@@ -32,4 +39,42 @@ func (i *IntSet) Copy() *IntSet {
 	return &t
 }
 
+// ip
 
+type Data struct {
+	Data Values `json:"data"`
+}
+type Values struct {
+	Country string `json:"country"`
+	City    string `json:"city"`
+}
+
+// add ip address, return country and city.
+func WhichCountry(ip ...string) (values []*Values) {
+	var syGroup sync.WaitGroup
+	var sySync sync.Mutex
+	vi := new(Data)
+	syGroup.Add(len(ip))
+	controlSpeed := make(chan struct{}, 20) // control http-get's speed.
+	for _, v := range ip {
+		go func(ip string) {
+			defer func() {
+				if r := recover(); r != nil {
+					fmt.Println(r)
+				}
+			}()
+			defer syGroup.Done()
+			controlSpeed <- struct{}{} // 启动计数器
+			res, _ := http.Get("http://ip.taobao.com/service/getIpInfo.php?ip=" + ip)
+			<-controlSpeed // 结束计数器
+			defer res.Body.Close()
+			data, _ := ioutil.ReadAll(res.Body)
+			json.Unmarshal(data, vi)
+			sySync.Lock()
+			values = append(values, &(vi.Data))
+			sySync.Unlock()
+		}(v)
+	}
+	syGroup.Wait()
+	return
+}

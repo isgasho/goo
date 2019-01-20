@@ -1,0 +1,15 @@
+go test -bench=. -cpu=4
+goos: darwin
+goarch: amd64
+pkg: github.com/googege/goo
+BenchmarkJoin1-4          	 2000000	       642 ns/op
+BenchmarkJoin2-4          	 1000000	      1146 ns/op
+BenchmarkOnePlusOne-4     	2000000000	         0.39 ns/op
+BenchmarkInset-4          	20000000	        73.4 ns/op
+BenchmarkWhichCountry-4   	     100	  42992596 ns/op
+BenchmarkEncrypt-4        	      20	  55067693 ns/op
+BenchmarkDeEncrypt-4      	      30	  39054494 ns/op
+BenchmarkEncryptMd5-4     	 1000000	      1038 ns/op
+BenchmarkDeEncryptMd5-4   	 2000000	      1006 ns/op
+PASS
+ok  	github.com/googege/goo	17.444s

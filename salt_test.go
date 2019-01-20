@@ -42,7 +42,6 @@ func TestEncryptMd5(t *testing.T) {
 	if b != nil || !a {
 		t.Error("❌")
 	}
-	fmt.Println(pass,salt)
 	//passErr := "123456!@"
 	//d,e := DeEncryptMd5(passErr,pass,salt)
 	//if e != nil || !d {
@@ -72,7 +71,6 @@ func ExampleDeEncryptMd5() {
 		fmt.Println("x")
 	//	output:x
 	}
-	fmt.Println(pass,salt)
 	passErr := "123456!@"
 	d,e := DeEncryptMd5(passErr,pass,salt)
 	if e != nil || !d {

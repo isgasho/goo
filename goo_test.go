@@ -49,3 +49,15 @@ func BenchmarkInset(b *testing.B) {
 		i.Clear()
 	}
 }
+
+// ip
+
+func TestWhichCountry(t *testing.T) {
+	WhichCountry("173.82.115.125")
+}
+
+func BenchmarkWhichCountry(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		WhichCountry("173.82.115.125", "173.82.115.125", "173.82.115.125", "173.82.115.125", "173.82.115.125")
+	}
+}
