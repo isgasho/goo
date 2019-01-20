@@ -1,6 +1,7 @@
 package goo
 
 import (
+	"fmt"
 	"testing"
 )
 
@@ -59,5 +60,13 @@ func TestWhichCountry(t *testing.T) {
 func BenchmarkWhichCountry(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		WhichCountry("173.82.115.125", "173.82.115.125", "173.82.115.125", "173.82.115.125", "173.82.115.125")
+	}
+}
+
+func ExampleWhichCountry() {
+	v := WhichCountry("173.82.115.125")
+	for _,b  := range v  {
+		fmt.Println(b.Country,b.City)
+		//output: 美国 洛杉矶
 	}
 }
