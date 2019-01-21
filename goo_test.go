@@ -70,23 +70,3 @@ func ExampleWhichCountry() {
 		//output: 美国 洛杉矶
 	}
 }
-
-// ip-language
-
-func TestWhichCountryInLanguages(t *testing.T) {
-	WhichCountryInLanguages("en", "173.82.115.125", "173.82.115.125", "173.82.115.125")
-}
-
-func ExampleWhichCountryInLanguages() {
-	v := WhichCountryInLanguages("en", "173.82.115.125", "173.82.115.125")
-	for _, b := range v {
-		fmt.Println(b.Country, b.City)
-		//output: US LA
-	}
-}
-
-func BenchmarkWhichCountryInLanguages(b *testing.B) {
-	for i := 0; i < b.N; i++ {
-		WhichCountryInLanguages("en", "173.82.115.125", "173.82.115.125")
-	}
-}
