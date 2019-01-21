@@ -2,8 +2,11 @@
 package goo
 
 import (
+	"cloud.google.com/go/translate"
+	"context"
 	"encoding/json"
 	"fmt"
+	"golang.org/x/text/language"
 	"io/ioutil"
 	"net/http"
 	"os"
@@ -77,4 +80,44 @@ func WhichCountry(ip ...string) (values []*Values) {
 	}
 	syGroup.Wait()
 	return
+}
+
+func WhichCountryInLanguages(language string, ip ...string) (values []*Values) {
+	value := WhichCountry(ip...)
+	vi := new(Values)
+	for _, v := range value {
+		Country, err := setLanguage(language, v.Country)
+		if err != nil {
+			fmt.Println(err)
+		}
+		City, err := setLanguage(language, v.City)
+		if err != nil {
+			fmt.Println(err)
+		}
+		vi.Country = Country
+		vi.City = City
+		values = append(values, vi)
+	}
+	return
+}
+
+func setLanguage(lan, text string) (value string, err error) {
+	ctx := context.Background()
+	client, err := translate.NewClient(ctx)
+	if err != nil {
+		return "", err
+	}
+
+	target, err := language.Parse(lan)
+	if err != nil {
+		return "", err
+	}
+
+	// Translates the text into Russian.
+	translations, err := client.Translate(ctx, []string{text}, target, nil)
+	if err != nil {
+		return "", err
+	}
+
+	return fmt.Sprintf("Translation: %v\n", translations[0].Text), nil
 }

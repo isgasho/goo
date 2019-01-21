@@ -1,6 +1,7 @@
 module github.com/googege/goo
 
 require (
+	cloud.google.com/go v0.34.0
 	github.com/alecthomas/gometalinter v2.0.12+incompatible // indirect
 	github.com/alecthomas/units v0.0.0-20151022065526-2efee857e7cf // indirect
 	github.com/fatih/gomodifytags v0.0.0-20180914191908-141225bf62b6 // indirect
@@ -16,6 +17,7 @@ require (
 	gitlab.com/NebulousLabs/fastrand v0.0.0-20181126182046-603482d69e40
 	golang.org/x/crypto v0.0.0-20190103213133-ff983b9c42bc
 	golang.org/x/sys v0.0.0-20190109145017-48ac38b7c8cb // indirect
+	golang.org/x/text v0.3.0
 	golang.org/x/tools v0.0.0-20190108222858-421f03a57a64 // indirect
 	gopkg.in/alecthomas/kingpin.v3-unstable v3.0.0-20180810215634-df19058c872c // indirect
 	gopkg.in/yaml.v2 v2.2.2 // indirect
