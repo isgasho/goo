@@ -2,6 +2,7 @@ package goo
 
 import (
 	"fmt"
+	"github.com/googege/goo/app"
 	"testing"
 )
 
@@ -69,4 +70,10 @@ func ExampleWhichCountry() {
 		fmt.Println(b.Country, b.City)
 		//output: 美国 洛杉矶
 	}
+}
+
+// test app
+
+func Testapp(t *testing.T) {
+	app.Join(nil, "1")
 }
