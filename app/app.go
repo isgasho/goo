@@ -1,5 +1,5 @@
 //app.go this file has the global functions structs maps slices or anything else.
-package goo
+package app
 
 import (
 	"bytes"

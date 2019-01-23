@@ -1,4 +1,4 @@
-package goo
+package app
 
 import (
 	"strings"
