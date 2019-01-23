@@ -2,8 +2,8 @@ package goo
 
 import (
 	"fmt"
-	"github.com/googege/goo/app"
 	"testing"
+	"github.com/googege/goo/app"
 )
 
 func TestInset(t *testing.T) {
@@ -75,5 +75,5 @@ func ExampleWhichCountry() {
 // test app
 
 func Testapp(t *testing.T) {
-	app.Join(nil, "1")
+	app.Join(nil,"1")
 }
